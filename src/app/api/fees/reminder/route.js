@@ -1,9 +1,10 @@
 // src/app/api/fees/reminder/route.js
 
 import { NextResponse } from "next/server";
-import prisma from "../../../../../lib/prisma";
-import { getUserFromRequest, ROLES } from "../../../../../lib/auth";
-import { sendFeeReminderSMS, sendBulkSMS } from "../../../../../lib/sms";
+import prisma from "@/lib/prisma";
+import { getUserFromRequest, ROLES } from "@/lib/auth";
+import { sendFeeReminderSMS, sendBulkSMS } from "@/lib/sms";
+
 
 const ok = (data, message = "Success") =>
   NextResponse.json({ success: true, message, data });

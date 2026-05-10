@@ -1,8 +1,8 @@
 // src/app/api/auth/verify-otp/route.js
 
 import { NextResponse } from "next/server";
-import { verifyOTP, generateOTP } from "../../../../../lib/auth";
-import prisma from "../../../../../lib/prisma";
+import { verifyOTP, generateOTP } from "@/lib/auth";
+import prisma from "@/lib/prisma";
 
 // ── VERIFY OTP ──────────────────────────────────────────────
 export async function POST(request) {

@@ -1,8 +1,8 @@
 // src/app/api/upload/route.js
 
 import { NextResponse } from "next/server";
-import { getUserFromRequest } from "../../../../lib/auth";
-import { uploadFromFormData } from "../../../../lib/r2";
+import { getUserFromRequest } from "@/lib/auth";
+import { uploadFromFormData } from "@/lib/r2";
 
 const ok = (data, message = "Success", status = 200) =>
   NextResponse.json({ success: true, message, data }, { status });

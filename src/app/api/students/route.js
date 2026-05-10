@@ -1,8 +1,8 @@
 // src/app/api/students/route.js
 
 import { NextResponse } from "next/server";
-import prisma from "../../../../lib/prisma";
-import { getUserFromRequest, ROLES } from "../../../../lib/auth";
+import prisma from "@/lib/prisma";
+import { getUserFromRequest, ROLES, hashPassword } from "@/lib/auth";
 import { hashPassword } from "../../../../lib/auth";
 
 const ok = (data, message = "Success", status = 200) =>

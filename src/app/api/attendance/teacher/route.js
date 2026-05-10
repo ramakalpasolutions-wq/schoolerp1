@@ -1,10 +1,9 @@
 // src/app/api/attendance/teacher/route.js
 
 import { NextResponse } from "next/server";
-import prisma from "../../../../../lib/prisma";
-import { getUserFromRequest, ROLES } from "../../../../../lib/auth";
-import { calculateDistance } from "../../../../../lib/haversine";
-
+import prisma from "@/lib/prisma";
+import { getUserFromRequest, ROLES } from "@/lib/auth";
+import { calculateDistance } from "@/lib/haversine";
 const ok = (data, message = "Success", status = 200) =>
   NextResponse.json({ success: true, message, data }, { status });
 const err = (message = "Error", status = 400) =>

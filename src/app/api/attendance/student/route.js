@@ -1,9 +1,9 @@
 // src/app/api/attendance/student/route.js
 
 import { NextResponse } from "next/server";
-import prisma from "../../../../../lib/prisma";
-import { getUserFromRequest, ROLES } from "../../../../../lib/auth";
-import { sendAttendanceSMS } from "../../../../../lib/sms";
+import prisma from "@/lib/prisma";
+import { getUserFromRequest, ROLES } from "@/lib/auth";
+import { sendAttendanceSMS } from "@/lib/sms";
 
 const ok = (data, message = "Success", status = 200) =>
   NextResponse.json({ success: true, message, data }, { status });

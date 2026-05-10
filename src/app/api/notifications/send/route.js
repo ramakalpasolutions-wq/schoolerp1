@@ -1,10 +1,10 @@
 // src/app/api/notifications/send/route.js
 
 import { NextResponse } from "next/server";
-import prisma from "../../../../../lib/prisma";
-import { getUserFromRequest, ROLES } from "../../../../../lib/auth";
-import { sendBulkSMS } from "../../../../../lib/sms";
-import { sendBulkEmail } from "../../../../../lib/email";
+import prisma from "@/lib/prisma";
+import { getUserFromRequest, ROLES } from "@/lib/auth";
+import { sendBulkSMS } from "@/lib/sms";
+import { sendBulkEmail } from "@/lib/email";
 
 const ok = (data, message = "Success") =>
   NextResponse.json({ success: true, message, data });

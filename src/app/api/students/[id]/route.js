@@ -1,8 +1,8 @@
 // src/app/api/students/[id]/route.js
 
 import { NextResponse } from "next/server";
-import prisma from "../../../../../lib/prisma";
-import { getUserFromRequest, ROLES } from "../../../../../lib/auth";
+import prisma from "@/lib/prisma";
+import { getUserFromRequest, ROLES } from "@/lib/auth";
 
 const ok = (data, message = "Success", status = 200) =>
   NextResponse.json({ success: true, message, data }, { status });
