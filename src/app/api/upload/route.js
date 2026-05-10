@@ -6,6 +6,7 @@ import { uploadFromFormData } from "../../../../lib/r2";
 
 const ok = (data, message = "Success", status = 200) =>
   NextResponse.json({ success: true, message, data }, { status });
+
 const err = (message = "Error", status = 400) =>
   NextResponse.json({ success: false, error: message }, { status });
 
@@ -57,7 +58,10 @@ export async function POST(request) {
 
     const maxSize = 10 * 1024 * 1024; // 10MB
     if (file.size > maxSize) {
-      return err(`File too large. Maximum size is ${maxSize / 1024 / 1024}MB.`, 400);
+      return err(
+        `File too large. Maximum size is ${maxSize / 1024 / 1024}MB.`,
+        400
+      );
     }
 
     if (!MIME_WHITELIST[file.type]) {
@@ -65,7 +69,6 @@ export async function POST(request) {
     }
 
     const folder = FOLDER_MAP[folderKey] || FOLDER_MAP.general;
-    const filename = customFilename || file.name;
 
     const result = await uploadFromFormData(file, folder);
 
@@ -86,7 +89,3 @@ export async function POST(request) {
     return err(error.message || "Upload failed.", 500);
   }
 }
-
-export const config = {
-  api: { bodyParser: false },
-};
